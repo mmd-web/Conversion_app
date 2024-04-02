@@ -43,12 +43,12 @@ resetBtn.addEventListener ("click" , () => {
 convertBtn.addEventListener ("click" , () => {
     if (flagChange) {
         saveValueInp = +inputBox.value;
-        let formulaC = outputC.innerHTML = (saveValueInp * 9.5) + 32;
+        let formulaC = outputC.innerHTML = (saveValueInp * 9/5) + 32;
         outputText.style.display = "flex";
         outputText.innerHTML = saveValueInp + ' C to ' + formulaC + ' F';
     }else {
         saveValueInp = +inputBox.value;
-        let formulaF = outputF.innerHTML = (saveValueInp - 32) * 5.9;
+        let formulaF = outputF.innerHTML = (saveValueInp - 32) * 5/9;
         outputText.style.display = "flex";
         outputText.innerHTML = saveValueInp + ' F to ' + formulaF + ' C';
     }
