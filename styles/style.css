@@ -11,10 +11,6 @@
     gap: 30px;
 }
 #Description {
-    height: 38px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     font-family: var(--fontFamily);
     font-size: 38px;
 }
