@@ -8,8 +8,24 @@
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-    <div id="container">
-
+    <div id="container" class="flex_center">
+        <div id="box_content" class="rel_position flex_col">
+            <div id="box_input" class="rel_position flex_col">
+                <span id="Description">
+                    Converter <p id="F"> F </p> to <p id="C"> C </p>
+                </span>
+                <input type="text" name="" id="converter" placeholder="C">
+            </div>
+            <div id="box_text" class="rel_position flex_center">
+                <span id="error_text" style="display: none;">Write correct value?</span>
+                <span id="output">x <p id="C">C</p> to x <p id="F">F</p></span>
+            </div>
+            <div id="box_btn" class="rel_position flex_row">
+                <button id="change">change</button>
+                <button id="reset">reset</button>
+                <button id="convert">convert</button>
+            </div>
+        </div>
     </div>
 </body>
 </html>
