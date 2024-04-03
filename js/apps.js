@@ -40,9 +40,11 @@ resetBtn.addEventListener ("click" , () => {
 convertBtn.addEventListener ("click" , () => {
     saveValueInp = +inputBox.value;
     if (inputBox.value === '') {
+        outputText.style.display = "none";
         errorText.style.display = "flex";
         errorText.innerHTML = 'Write correct value!';
     }else if (isNaN(saveValueInp)) {
+        outputText.style.display = "none";
         errorText.style.display = "flex";
         errorText.innerHTML = 'Worg Value!';
     }else {
