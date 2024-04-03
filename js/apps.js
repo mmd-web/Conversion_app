@@ -13,21 +13,18 @@ let resetBtn = $.getElementById ("reset");
 let convertBtn = $.getElementById ("convert");
 
 let flagChange = true;
-let saveValueInp = 0;
+let saveValueInp ;
 
 descriptionText.innerHTML = 'Converter '+degreesC.innerHTML+' to '+degreesF.innerHTML;
-// outputText.innerHTML = outputC.innerHTML + ' C to ' + outputC.innerHTML + ' F';
 
 changeBtn.addEventListener ("click" , () => {
     if (flagChange) {
         inputBox.setAttribute ("placeholder" , "F");
         descriptionText.innerHTML = 'Converter '+degreesF.innerHTML+' to '+degreesC.innerHTML;
-        // outputText.innerHTML = outputF.innerHTML + ' F to ' + outputC.innerHTML + ' C';
         flagChange = false;
     }else {
         inputBox.setAttribute ("placeholder" , "C");
         descriptionText.innerHTML = 'Converter '+degreesC.innerHTML+' to '+degreesF.innerHTML;
-        // outputText.innerHTML = outputC.innerHTML + ' C to ' + outputF.innerHTML + ' F';
         flagChange = true;
     }
 })
@@ -41,15 +38,23 @@ resetBtn.addEventListener ("click" , () => {
 })
 
 convertBtn.addEventListener ("click" , () => {
-    if (flagChange) {
-        saveValueInp = +inputBox.value;
-        let formulaC = outputC.innerHTML = (saveValueInp * 9/5) + 32;
-        outputText.style.display = "flex";
-        outputText.innerHTML = saveValueInp + ' C to ' + formulaC + ' F';
+    saveValueInp = +inputBox.value;
+    if (inputBox.value === '') {
+        errorText.style.display = "flex";
+        errorText.innerHTML = 'Write correct value!';
+    }else if (isNaN(saveValueInp)) {
+        errorText.style.display = "flex";
+        errorText.innerHTML = 'Worg Value!';
     }else {
-        saveValueInp = +inputBox.value;
-        let formulaF = outputF.innerHTML = (saveValueInp - 32) * 5/9;
-        outputText.style.display = "flex";
-        outputText.innerHTML = saveValueInp + ' F to ' + formulaF + ' C';
+        errorText.style.display = "none";
+        if (flagChange) {
+            let formulaC = outputC.innerHTML = (saveValueInp * 9/5) + 32;
+            outputText.style.display = "flex";
+            outputText.innerHTML = saveValueInp + ' C to ' + formulaC.toFixed (2) + ' F';
+        }else {
+            let formulaF = outputF.innerHTML = (saveValueInp - 32) * 5/9;
+            outputText.style.display = "flex";
+            outputText.innerHTML = saveValueInp + ' F to ' + formulaF.toFixed (2) + ' C';
+        }
     }
 })

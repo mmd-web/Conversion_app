@@ -38,6 +38,9 @@
     font-family: var(--fontFamily);
     font-size: 25px
 }
+#box_text>#error_text {
+    color: red;
+}
 
 #box_btn {
     width: 100%;
